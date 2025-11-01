@@ -1,12 +1,13 @@
 package org.home.hometask;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class CustomArrayList {
-    private Object[] array = new Object[2];
+    private Object[] array;
+
+    public CustomArrayList() {
+        array = new Object[2];
+    }
 
     public int size(){
         return array.length;
@@ -23,7 +24,6 @@ public class CustomArrayList {
         for (int i = 0; i < object.length; i++){
             extensionArray[i] = object[i];
         }
-        System.out.println("extensionArray");
         array =  extensionArray;
         return array;
     }
@@ -46,30 +46,34 @@ public class CustomArrayList {
         return false;
     }
 
-    public static void main(String[] args) {
-        CustomArrayList list = new CustomArrayList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(4);
-        list.add(4);
-        list.add(4);
-        list.add(4);
-        list.add(4);
-        System.out.println(Arrays.toString(list.array));
+    public Object get(int index){
+        return array[index];
     }
 
-    public void get(){
-
+    public Object[] getArray(){
+        return array;
     }
 
-    public void remove(){
-
+    private boolean checkIndex(int index){
+        return index >= 0 && index < size();
     }
 
-    public void addAll(){
+    public boolean remove(int index){
+        if (checkIndex(index)){
+            array[index] = null;
+            return true;
+        }else {
+            return false;
+        }
+    }
 
+    public boolean addAll(Object[] objects){
+        for (Object object : objects) {
+            if (!add(object)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
