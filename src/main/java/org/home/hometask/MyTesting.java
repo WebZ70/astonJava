@@ -59,12 +59,52 @@ public class MyTesting {
                 , new Student("Alex")
         );
 
-
+        System.out.println("students");
         students.stream().peek(student -> {})
-                .forEach(student -> {student.addBookStudent(Book.getRandomBook(books, 5));});
+                .forEach(student -> {
+                    student.addBookStudent(Book.getRandomBook(books, 5));
+                    System.out.println(student);
+                });
+        System.out.println("books");
+        books.stream().peek(book -> {})
+                .forEach(book -> {
+                    System.out.println(book);
+                });
 
+        System.out.println("books sorted");
+        books.stream().peek(book -> {})
+                .sorted((o1, o2) -> o1.getTitle().compareTo(o2.getTitle()))
+                .forEach(book -> System.out.println(book));
+
+        System.out.println("years > 2000");
+        books.stream().peek(book -> {})
+                .filter(book -> book.getYear() > 2000)
+                .forEach(book -> {
+                    System.out.println(book);
+                });
+
+        System.out.println("limitStream");
         students.stream().peek(student -> {})
-                .forEach(System.out::println);
+                .limit(3)
+                .forEach(student -> {System.out.println(student);});
+
+        System.out.println("yearBooks");
+        books.stream().peek(book -> {})
+                .forEach(book -> System.out.println(book.getYear()));
+
+        System.out.println("Optional");
+        System.out.println(books.stream().peek(book -> {})
+                .filter(b -> b.getTitle() != null && !b.getTitle().isEmpty())
+                .findFirst());
+
+        Optional<Book> foundBook = books.stream()
+                .filter(book -> book.getTitle().equals("Java"))  // Фильтр по названию
+                .findFirst();
+
+        foundBook.ifPresentOrElse(
+                book -> System.out.println("year '" + book.getTitle() + "': " + book.getYear()),
+                () -> System.out.println("not find book")
+        );
 
 
 //        HashSet<Book> bookSet = new HashSet<>(books);
