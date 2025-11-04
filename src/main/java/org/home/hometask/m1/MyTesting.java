@@ -1,8 +1,6 @@
-package org.home.hometask;
+package org.home.hometask.m1;
 
 import java.util.*;
-import java.util.stream.Stream;
-import java.security.SecureRandom;
 
 public class MyTesting {
     public static void main(String[] args) {

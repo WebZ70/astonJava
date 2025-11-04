@@ -1,6 +1,4 @@
-package org.home.hometask;
-
-import java.util.ArrayList;
+package org.home.hometask.m1;
 
 public class CustomArrayList {
     private Object[] array;

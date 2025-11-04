@@ -1,4 +1,4 @@
-package org.home.hometask;
+package org.home.hometask.m1;
 
 
 import java.util.*;
