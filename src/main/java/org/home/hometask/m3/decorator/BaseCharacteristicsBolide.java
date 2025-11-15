@@ -10,7 +10,7 @@ public class BaseCharacteristicsBolide implements CharacteristicsBolide {
     }
 
     @Override
-    public int getMaxSpeed() {
+    public int getChangeMaxSpeed() {
         return this.maxSpeed;
     }
 
@@ -21,7 +21,7 @@ public class BaseCharacteristicsBolide implements CharacteristicsBolide {
 
     @Override
     public String toString() {
-        return "Максимальная скорость: " + getMaxSpeed() + " " +
+        return "Максимальная скорость: " + getChangeMaxSpeed() + " " +
                 "Угол поворота: " + getRotationAngleWheels();
     }
 }

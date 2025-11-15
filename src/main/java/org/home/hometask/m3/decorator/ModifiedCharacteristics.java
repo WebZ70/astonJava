@@ -1,29 +1,29 @@
 package org.home.hometask.m3.decorator;
 
-public class ModifiedCharacteristics implements CharacteristicsBolide{
+public abstract class ModifiedCharacteristics implements CharacteristicsBolide{
     private final CharacteristicsBolide bolide;
-    private final int maxSpeed;
-    private final double rotationAngleWheels;
+    private final int changeMaxSpeed;
+    private final double changeRotationAngleWheels;
 
-    ModifiedCharacteristics(CharacteristicsBolide bolide, int maxSpeed, double rotationAngleWheels) {
+    ModifiedCharacteristics(CharacteristicsBolide bolide, int changeMaxSpeed, double changeRotationAngleWheels) {
         this.bolide = bolide;
-        this.maxSpeed = maxSpeed;
-        this.rotationAngleWheels = rotationAngleWheels;
+        this.changeMaxSpeed = changeMaxSpeed;
+        this.changeRotationAngleWheels = changeRotationAngleWheels;
     }
 
     @Override
-    public int getMaxSpeed() {
-        return this.maxSpeed + bolide.getMaxSpeed();
+    public int getChangeMaxSpeed() {
+        return this.changeMaxSpeed + bolide.getChangeMaxSpeed();
     }
 
     @Override
     public double getRotationAngleWheels() {
-        return this.rotationAngleWheels + bolide.getRotationAngleWheels();
+        return this.changeRotationAngleWheels + bolide.getRotationAngleWheels();
     }
 
     @Override
     public String toString() {
-        return "Максимальная скорость: " + getMaxSpeed() + " " +
+        return "Максимальная скорость: " + getChangeMaxSpeed() + " " +
                 "Угол поворота: " + getRotationAngleWheels();
     }
 }
